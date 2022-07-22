@@ -1,60 +1,49 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/navbar.css">
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-light">
-      <div class="container-fluid">
-        <a id="link_img" href="">
-          <img class="img-fluid" src="../static/img/logo.png" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around">
-            <li class="nav-item dropdown">
-              <a href="#" data-bs-toggle="dropdown">Productos</a>
-               <ul class="dropdown-menu">
-                   <li><a href="#">Agua</a></li>
-                   <li><a href="#">Kit Iniciales</a></li>
-                   <li><a href="#">Planes</a></li>
-                   <li><a href="#">Dispensadores y Accesorios</a></li>
-               </ul>
-           </li>
-           <li class="nav-item dropdown">
-            <a href="#" data-bs-toggle="dropdown">Quienes Somos</a>
-             <ul class="dropdown-menu">
-                 <li><a href="#">Preguntas frecuentes</a></li>
-                 <li><a href="#">Políticas de despacho</a></li>
-                 <li><a href="#">Garantías</a></li>
-             </ul>
-         </li>
-            <li class="nav-item">
-              <a aria-current="page" href="#">Zona de Despacho</a>
-            </li>
-            <li class="nav-item">
-              <a aria-current="page" href="#">Tratamiento de aguas</a>
-            </li>
-            <li class="nav-item">
-              <a aria-current="page" href="#">Contacto</a>
-            </li>
+{%load static%}
+<link rel="stylesheet" href="{%static '/css/navbar.css' %}">
+<script src="{% static 'js/navbar.js' %}"></script>
+<nav class="navbar navbar-expand-md navbar-light">
+  <div class="container-fluid d-flex justify-content-center">
+    <a href="">
+      <img class="img-fluid" id="logo" src="../static/img/logo.png" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse m2" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-around">
+        <li class="nav-item dropdown p-0">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Productos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </div>
-      </div>
-    </nav>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Quienes Somos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Zona de Despacho</a>
+        </li>
+        <li class="nav-item">
+          <a aria-current="page" href="#">Tratamiento de aguas</a>
+        </li>
+        <li class="nav-item">
+          <a aria-current="page" href="#">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="../static/js/navbar.js"></script>
-  </body>
-</html>

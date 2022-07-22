@@ -5,12 +5,12 @@
 *{
     font-family: Poppins;
 }
-img{
-    width: 200px;
+#logo{
+    width: 2020px;
     max-width: 350px;
 }
 a{
-    color: #014ea2;
+    color: red;
     text-decoration: none;
 }
 nav{
@@ -20,6 +20,18 @@ nav{
 ul{ 
     /*ESTO ME PERMITE JUSTIFICAR EL CONTENIDO EN EL UL*/
     flex-basis:100%; 
+}
+.dropdown-menu li{
+    width: 200px;
+    padding: 10px 15px;
+    
+}
+.dropdown-menu li:hover{
+    background-color: rgba(180, 180, 180, 0.096);
+    
+}
+#navbarSupportedContent{
+    max-width: 800px;
 }
 @media (min-width: 576px) {
 
