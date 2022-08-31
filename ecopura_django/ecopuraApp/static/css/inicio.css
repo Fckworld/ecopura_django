@@ -1,9 +1,20 @@
 body h1{
     color: #FFFFFF;
 }
+  
+  /* visited link */
+a:visited {
+    color: inherit;
+}
+a:hover {
+    color: hotpink;
+}
 
 #img-1{
     display: none;
+}
+#boton-productos{
+    padding: 4px 25px;
 }
 #contenedor-promociones{
     height: 100px;
@@ -11,21 +22,26 @@ body h1{
 }
 #img-2{
     background-image:url('../img/2.png');
-    background-position: right;
     background-repeat: no-repeat;    
     background-size: cover;
+    background-position: center;
     color: white;
-    height: 200px;
     text-align: right;
     padding-top: 20px;
+    min-height: 200px;
+    padding-bottom: 20px;
 }
-#img-2 p{
-    padding-right: 20px;
+#img-2 .col{
+    max-width: 240px;
+    word-wrap: break-word;
+    
 }
 
 @media (min-width: 576px) {
-
-    
+    #img-2 .col{
+        max-width: 350px;
+        text-align: center;
+    }   
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -36,16 +52,36 @@ body h1{
     #img-1{
         display: inline-block;
     }
+    #boton-productos{
+        padding-right: 30px;
+    }
  }
 
 /* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) { 
-
+@media (min-width: 992px) {
+    #img-2{
+        padding-top: 20px;
+        padding-bottom: 20px;
+       
+    }
+    #img-2 .col{
+        max-width: 500px;
+        margin-right: 90px;
+        text-align: center;
+        font-size: 50px;
+    
+        
+    }   
  }
 
 /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
-
+@media (min-width: 1200px) {
+    #img-2 .col{
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
  }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
