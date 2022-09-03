@@ -9,6 +9,9 @@ a:visited {
 a:hover {
     color: hotpink;
 }
+.row{
+    margin: 0;
+}
 
 #img-1{
     display: none;
@@ -36,6 +39,65 @@ a:hover {
     word-wrap: break-word;
     
 }
+#servicios img{
+    max-width: 250px;
+}
+#servicios ul{
+    list-style: none;
+    padding: 0;
+    
+}
+#servicios ul li{
+    display: flex;
+    justify-content: center;
+}
+#servicios a{
+
+    padding: 6px 50px;
+    margin: 20px 0px;
+    color: white;
+    font-size: 20px;
+    background-color: #204e9d;
+    transition: 0.3s;
+    border: solid #204e9d;
+    border-width: 1px;
+}
+
+#servicios a:hover{
+    color: #204e9d;
+    background-color: white;
+}
+#informacion ul{
+    list-style: none;
+    padding: 0;
+}
+#informacion ul li{
+    display: flex;
+    justify-content: center;
+    margin: 0 50px;
+    color: #204e9d;
+    
+}
+
+#quienes{
+    padding: 0;
+    color: #204e9d;
+    text-align: center;
+}
+
+#quienes a{
+    padding: 6px 50px;
+    margin: 20px 0px;
+    color: white;
+    font-size: 20px;
+    background-color: #204e9d;
+    transition: 0.3s;
+    border: solid #204e9d;
+    border-width: 1px;
+    max-width: 200px;
+    
+}
+
 
 @media (min-width: 576px) {
     #img-2 .col{
@@ -71,7 +133,26 @@ a:hover {
         font-size: 50px;
     
         
-    }   
+    }
+
+    #quienes h2{
+        text-align: start;
+        padding-left: 50px;
+        font-weight:bolder
+    }
+    #quienes p{
+        text-align: start;
+        margin-bottom: 50px;
+        padding-left: 50px;
+        max-width: 400px;
+        font-size: 25px;
+    }
+    #quienes a{
+        display: flex;
+        justify-content: start;
+        margin-left: 50px;
+    }
+    
  }
 
 /* X-Large devices (large desktops, 1200px and up) */

@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.urls import path
 
 from ecopuraApp.views import *
@@ -8,5 +9,7 @@ urlpatterns = [
     #PRIMER PARAMETRO PARA EL DIRECCIONAR CON URL, Y EL SEGUNDO ES EL NOMBRE DE LA FUNCION 
     #QUE ESTA EN LAS VISTAS (NO OLVIDAR IMPORTARLAS).
     path('',Inicio.as_view(),name='inicio_url'),
-
+    path('agua',Agua.as_view(),name='agua_url'),
+    path('productos',Producto.as_view(),name='productos_url'),
+    
 ]

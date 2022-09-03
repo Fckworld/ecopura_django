@@ -1,0 +1,59 @@
+footer{
+    background-image: url('../img/footer.png');
+    background-repeat: no-repeat;    
+    background-size: cover;
+    background-position: center;
+    
+    color: white;
+
+}
+p{
+    font-weight: lighter;
+}
+h3{
+  font-size: 30px;
+  margin: 30px auto;
+}
+.row{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+footer .col-md{
+    text-align: center;
+    max-width: 300px;
+}
+
+#redes a{
+    width: 70px;
+}
+
+#redes img{
+    max-width: 70px;
+}
+
+
+@media (min-width: 576px) {
+    
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+ }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+    
+ }

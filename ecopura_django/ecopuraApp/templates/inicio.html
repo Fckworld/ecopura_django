@@ -16,9 +16,10 @@
     </title>
   </head>
   <header>
-    {% include "navbar.html"%}
+    
   </header>
   <body>
+    {% include "navbar.html"%}
     <img id="img-1-responsive" class="img-fluid" src="{% static 'img/1-responsive.png'%}" alt="">
     <img id="img-1" class="img-fluid" src="{% static 'img/1.png'%}" alt="">
     <div id="contenedor-promociones" class="container-fluid d-flex align-items-center justify-content-center">
@@ -26,18 +27,120 @@
     </div>
     <div id='img-2' class="row mx-auto d-flex justify-content-end">
       <div class="col">
-        <h3>Aprovecha ahora y recarga tus</h3>
-        <h1 >botellones</h3>
-        <h3>de 12 y 20 lts</h3>
+        <h3 class="my-3">Aprovecha ahora y recarga tus</h3>
+        <h1 class="display-3 my-0" >botellones</h3>
+        <h3 class="my-3">de 12 y 20 lts</h3>
         <a id="boton-productos" class="border border-white" href="">Ver productos</a>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md"></div>
-      <div class="col-md"></div>
-      <div class="col-md"></div>
-      <div class="col-md"></div>
+    <div id="servicios" class="row my-5">
+      <div class="col-md">
+        <ul class="p-0" >
+          <li>
+            <img class="img-fluid" src="{% static 'img/3-1.png'%}" alt="">
+          </li>
+          <li>
+            <a href="">Agua</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md">
+          <ul>
+            <li>
+              <img class="img-fluid" src="{% static 'img/3-2.png'%}" alt="">
+            </li>
+            <li>
+              <a href="">Kit iniciales</a>
+            </li>
+          </ul>
+      </div>
+      <div class="col-md">
+          <ul>
+            <li>
+              <img class="img-fluid" src="{% static 'img/3-3.png'%}" alt="">
+            </li>
+            <li>
+              <a href="">Planes</a>
+            </li>
+          </ul>
+      </div>
+      <div class="col-md">
+          <ul>
+            <li>
+              <img class="img-fluid" src="{% static 'img/3-4.png'%}" alt="">
+            </li>
+            <li>
+              <a href="">Accesorios</a>
+            </li>
+          </ul>
+      </div>
     </div>
+    <div id="informacion" class="row mx-auto">
+      <div class="col-md">
+        <ul>
+          <li>
+            <img class="img-fluid" src="{% static 'img/4-1.png'%}" alt="">
+          </li>
+          <li>
+            <h3>Calidad Premium</h3>
+          </li>
+          <li>
+            <p class="text-center">Nuestro equipo de profesionales consta de ingenieros químicos y especialistas en tratamiento
+              de aguas</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md">
+        <ul>
+          <li>
+            <img class="img-fluid" src="{% static 'img/4-2.png'%}" alt="">
+          </li>
+          <li>
+            <h3>Agua Purificada</h3>
+          </li>
+          <li>
+            <p class="text-center">Nuestra agua Purificada es un tipo de Agua Potable donde las impurezas se reducen hasta tal punto que son casi imperceptibles</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md">
+        <ul>
+          <li>
+            <img class="img-fluid" src="{% static 'img/4-3.png'%}" alt="">
+          </li>
+          <li>
+            <h3>Agua Alcalina</h3>
+          </li>
+          <li>
+            <p class="text-center">Es un tipo de agua ionizada que actúa como un potente y natural antioxidante</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    
+    <div id="quienes" class="row py-5 px-0">
+      <div class="col-md px-0">
+        <img class="img-fluid" src="{% static 'img/5.png'%}" alt="">
+      </div>
+      <div id="quienes-somos" class="col-md">
+        <h2 class=" display-3 my-5" >
+          Quienes Somos
+        </h2 >
+        <p>
+          Ecopura SpA, es una empresa joven y dedicada a entregar 
+          productos y servicio de calidad garantizada con análisis y certificaciones constantes.
+        </p>
+        <a class="d-flex justify-content-center" href="">Ver más</a>
+      </div>
+    </div>
+
+    <div id="contenedor-promociones" class="container-fluid d-flex align-items-center justify-content-center">
+      <h1 class="text-center display-4 " >Productos Destacados</h1>
+  </div>
+
+    {% include "footer.html"%}
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
