@@ -11,3 +11,7 @@ class Agua(TemplateView):
     template_name='agua.html'
 class Producto(TemplateView):
     template_name='productos.html'
+class KitIniciales(TemplateView):
+    template_name='kit-iniciales.html'
+class Planes(TemplateView):
+    template_name='planes.html'

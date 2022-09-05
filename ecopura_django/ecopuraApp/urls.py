@@ -11,5 +11,7 @@ urlpatterns = [
     path('',Inicio.as_view(),name='inicio_url'),
     path('agua',Agua.as_view(),name='agua_url'),
     path('productos',Producto.as_view(),name='productos_url'),
+    path('kitiniciales',KitIniciales.as_view(),name='kitiniciales_url'),
+    path('planes',Planes.as_view(),name='planes_url'), 
     
 ]
