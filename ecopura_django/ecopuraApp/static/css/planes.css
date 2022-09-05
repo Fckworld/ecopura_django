@@ -1,0 +1,48 @@
+#accordion{
+    margin-top: 50px;
+}
+#accordion button{
+    width: 100%;
+}
+h1{
+    padding: 10px 20px;
+}
+#accordion .col-md-4{
+    background-color: rgba(61, 155, 233, 0.1) !important;
+    color: rgb(0, 69, 158);
+}
+#accordion .col-md-8{
+    background-color: rgba(170, 211, 244, 0.1) !important;
+    color: rgb(0, 69, 158);
+}
+#accordion .card{
+    border: 0;
+    padding: 0 45px;
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #accordion .card{
+        padding: 0 20%;
+    }
+    #accordion .col-md-4{
+      
+    }
+    h1{
+       
+    }
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+    
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+ }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+    
+ }
