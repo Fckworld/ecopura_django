@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'ecopura_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql', #MODIFICO AQUI PARA DEFINIR QUE MOTOR VOY A USAR
+        'NAME': 'ecopura', #EL NOMBRE DE LA BASE DE DATOS QUE USARE(BASE DE DATOS CREADA CON EL GESTOR DE POSTGRESQL MANUELAMENTE.)
+        'USER':'postgres',
+        'PASSWORD':'admin',
+        'HOST':'localhost',
+        'DATABASE_PORT':'5432',
     }
 }
 
