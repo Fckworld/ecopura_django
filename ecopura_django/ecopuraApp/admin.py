@@ -1,17 +1,38 @@
 from django.contrib import admin
-from ecopuraApp.models import Place, Restaurant, Waiter
+from ecopuraApp.models import *
 
 # Register your models here.
-class PlaceAdmin(admin.ModelAdmin):
-    list_display = ('id','name','address')
 
-class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ('place','serves_hot_dogs','serves_pizza')
+class UsuarioAdmin(admin.ModelAdmin):
+    list_display = ('id','correo')
+
+class ClienteAdmin(admin.ModelAdmin):
+    list_display = ('id','p_nombre','s_apellido')
+
+class DireccionAdmin(admin.ModelAdmin):
+    list_display = ('id','comuna','direccion')
+
+class BoletaAdmin(admin.ModelAdmin):
+    list_display = ('id','impuesto')
+
+class PagoAdmin(admin.ModelAdmin):
+    list_display = ('id','medio')
+
+class CarritoAdmin(admin.ModelAdmin):
+    list_display = ('id','valor_carro')
+
+class ProductoAdmin(admin.ModelAdmin):
+    list_display = ('id','nombre','precio')
+
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('id','nombre')
 
 
-class WaiterAdmin(admin.ModelAdmin):
-    list_display = ('id','restaurant','name')
-
-admin.site.register(Place,PlaceAdmin)
-admin.site.register(Restaurant,RestaurantAdmin)
-admin.site.register(Waiter,WaiterAdmin)
+admin.site.register(Usuario,UsuarioAdmin)
+admin.site.register(Cliente,ClienteAdmin)
+admin.site.register(Direccion,DireccionAdmin)
+admin.site.register(Boleta,BoletaAdmin)
+admin.site.register(Pago,PagoAdmin)
+admin.site.register(Carrito,CarritoAdmin)
+admin.site.register(Producto,ProductoAdmin)
+admin.site.register(Categoria,CategoriaAdmin)
