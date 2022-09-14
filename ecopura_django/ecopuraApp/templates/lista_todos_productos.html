@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block title%}
+    Productos
+{%endblock%}
+{% block content%}
+{% for producto in productos%}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src={{producto.foto}} alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{producto.nombre}}</h5>
+            <p class="card-text">{{producto.descripcion}}</p>
+            <a href="#" class="btn btn-primary">{{producto.precio}}</a>
+        </div>
+    </div>
+{%endfor%}
+{%endblock%}

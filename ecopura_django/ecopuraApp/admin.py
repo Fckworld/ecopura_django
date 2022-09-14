@@ -22,7 +22,7 @@ class CarritoAdmin(admin.ModelAdmin):
     list_display = ('id','valor_carro')
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('id','nombre','precio','categoria')
+    list_display = ('id','nombre','precio','foto')
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id','nombre')

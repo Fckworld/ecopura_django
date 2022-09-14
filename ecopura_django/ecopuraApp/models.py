@@ -1,3 +1,5 @@
+from distutils.command.upload import upload
+from turtle import back
 from django.db import models
 """
 SI BORRO UNO DATO DE PLACE, AUTOMATICAMENTE, SE BORRARÀ UNO DE RESUTARUANTE,
@@ -48,7 +50,9 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.IntegerField()
     descripcion = models.CharField(max_length=300)
+    foto = models.ImageField(null = True, blank = True,  upload_to = 'img')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
+    
     def __str__(self):
         return self.nombre
 
