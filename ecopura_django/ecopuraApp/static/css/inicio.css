@@ -1,14 +1,37 @@
-body h1{
+@font-face {
+    font-family: Gilroy-ExtraBold;
+    src: url(../fonts/Gilroy-ExtraBold.otf);
+    
+}
+@font-face {
+    font-family: Rubik-Bold;
+    src: url(../fonts/Rubik-Bold.ttf);
+    
+}
+@font-face {
+    font-family: Rubik-Medium;
+    src: url(../fonts/Rubik-Medium.ttf);
+    
+}
+@font-face {
+    font-family: Gilroy-Light;
+    src: url(../fonts/Gilroy-Light.otf);
+    
+}
+h2{
     color: #FFFFFF;
+    font-family:Gilroy-ExtraBold;
+    
 }
-  
-  /* visited link */
-a:visited {
-    color: inherit;
+h3{
+    font-family:Gilroy-ExtraBold;
+
 }
-a:hover {
-    color: hotpink;
+p{
+    font-family: Gilroy-Light;
 }
+
+
 .row{
     margin: 0;
 }
@@ -18,10 +41,13 @@ a:hover {
 }
 #boton-productos{
     padding: 4px 25px;
+    color: white;
+    
+    
 }
+
 #contenedor-promociones{
-    height: 100px;
-    background-color: rgb(14, 14, 14);
+    background-color: rgb(50, 113, 181);
 }
 #img-2{
     background-image:url('../img/2.png');
@@ -98,12 +124,11 @@ a:hover {
     
 }
 
-
 @media (min-width: 576px) {
     #img-2 .col{
         max-width: 350px;
         text-align: center;
-    }   
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -135,7 +160,7 @@ a:hover {
         
     }
 
-    #quienes h2{
+    #quienes h1{
         text-align: start;
         padding-left: 50px;
         font-weight:bolder
@@ -169,3 +194,12 @@ a:hover {
 @media (min-width: 1400px) { 
     
  }
+
+ /****/
+ @media (max-width: 768px) {
+    #quienes-somos a{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+

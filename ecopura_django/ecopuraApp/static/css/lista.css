@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Gilroy-ExtraBold;
+    src: url(../fonts/Gilroy-ExtraBold.otf);
+    
+}
+#lista{
+    max-width: 980px;
+}
+#lista h5{
+    font-size: 30px;
+    color: rgb(88, 153, 227);
+}
+#lista a{
+    font-family:Gilroy-ExtraBold;
+    font-size: 25px;
+    color: rgb(31,77,156);
+}
+#lista nav a{
+    font-size: 20px;
+}

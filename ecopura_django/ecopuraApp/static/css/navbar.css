@@ -5,6 +5,7 @@
 
 *{
     font-family: Poppins;
+
 }
 
 #logo{
@@ -17,16 +18,22 @@ a{
     color: #204e9d;
 }
 
+#navbarSupportedContent ul li ul li a{
+    color: #204e9d;
+}
 nav{
     box-shadow: 0px 10px 10px -10px gray;
     
-    
 }
-
+.dropdown-item:hover {
+    color: #204e9d;
+    background-color: #e9ecef;
+  }
 ul{ 
     /*ESTO ME PERMITE JUSTIFICAR EL CONTENIDO EN EL UL*/
     flex-basis:100%;
 }
+
 
 ul .dropdown-menu{
     border-width: 0;

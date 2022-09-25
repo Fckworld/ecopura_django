@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
@@ -14,7 +13,8 @@ urlpatterns = [
     path('productos',ProductoView.as_view(),name='productos_url'),
     path('kitiniciales',KitIniciales.as_view(),name='kitiniciales_url'),
     path('planes',Planes.as_view(),name='planes_url'), 
-    path('lista',ListarTodosProductos.as_view(),name='listartodosproductos_url'), 
+    path('lista',ListarTodosProductos.as_view(),name='listartodosproductos_url'),
+    path('detalle',ProductoDetalle.as_view(),name='detalle_url'),
     ]
     #ESTO ME PERTMITE SERVIR LOS ARCHIVOS STATICOS 
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

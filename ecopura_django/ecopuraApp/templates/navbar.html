@@ -3,7 +3,7 @@
 <div class="sticky-top bg-white" id="navbar">
   <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-fluid d-flex justify-content-center">
-      <a href="">
+      <a href="{% url 'ecopuraApp:inicio_url' %}">
         <img class="img-fluid" id="logo" src="../static/img/logo.png" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,9 +16,9 @@
               Productos
             </a>
             <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdown">
-              <li class="py-1"><a class="dropdown-item" href="#">Agua</a></li>
-              <li class="py-1"><a class="dropdown-item" href="#">Planes</a></li>
-              <li class="py-1"><a class="dropdown-item" href="#">Kit Iniciales</a></li>
+              <li class="py-1"><a class="dropdown-item" href="{% url 'ecopuraApp:agua_url' %}">Agua</a></li>
+              <li class="py-1"><a class="dropdown-item" href="{% url 'ecopuraApp:planes_url' %}">Planes</a></li>
+              <li class="py-1"><a class="dropdown-item" href="{% url 'ecopuraApp:kitiniciales_url' %}">Kit Iniciales</a></li>
               <li class="py-1"><a class="dropdown-item" href="#">Dispensadores Y Accesorios</a></li>
             </ul>
           </li>
