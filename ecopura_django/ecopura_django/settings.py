@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 #ESTO ES PARA PODER SUBIR IMAGENES A LA BASE DE DATOS, Y EN QUE CARPETA SE GUARDARA
-MEDIA_URL = 'ecopuraApp/media/'
+MEDIA_URL = ''
 
 MEDIA_ROOT = BASE_DIR/'ecopuraApp/media'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'ecopuraApp/static'),)

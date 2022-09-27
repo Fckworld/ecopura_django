@@ -47,21 +47,19 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombre
 
+class Tipo(models.Model):
+    nombre = models.CharField(max_length=30, null= True)
+    def __str__(self):
+        return self.nombre
+
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.IntegerField()
     descripcion = models.CharField(max_length=300)
     foto = models.ImageField(null = True, blank = True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
+    tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE, null= True)
     
-    def __str__(self):
-        return self.nombre
-
-class Kit(models.Model):
-    nombre = models.CharField(max_length=30, null=True)
-    precio = models.IntegerField()
-    descripcion = models.CharField(max_length=300)
-    producto = models.ManyToManyField(Producto)
     def __str__(self):
         return self.nombre
 
@@ -69,7 +67,6 @@ class Carrito(models.Model):
     valor_carro = models.IntegerField()
     descuento = models.IntegerField()
     producto = models.ManyToManyField(Producto,blank=True)
-    kit = models.ManyToManyField(Kit,blank=True)
 
 
 class Boleta(models.Model):
@@ -86,14 +83,7 @@ class Boleta(models.Model):
         on_delete = models.CASCADE,
         null=True,
     )
-class Promocion(models.Model):
-    nombre = models.CharField(max_length=50)
-    precio = models.IntegerField()
-    descripcion = models.CharField(max_length=200)
-    producto = models.ManyToManyField(Producto)
-    
-    def __str__(self):
-        return self.nombre
+
     
 class Contacto(models.Model):
     p_nombre = models.CharField(max_length=100)

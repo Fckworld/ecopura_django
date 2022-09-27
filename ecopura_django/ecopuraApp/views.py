@@ -9,35 +9,50 @@ from ecopuraApp.models import *
 
 class Inicio(ListView):
     template_name= 'inicio.html'
+    model = Producto
     paginate_by = 9
-    def get_queryset(self):
-        try:
-            return Producto.objects.all().values_list('id','nombre','precio','descripcion').union(Kit.objects.all().values_list('id','nombre','precio','descripcion')).union(Promocion.objects.all().values_list('id','nombre','precio','descripcion'))
-        except:
-            return print('error')
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['ala'] = 3
-        return context
+    ordering = ['nombre']
 
-class Agua(TemplateView):
+class ProductoDetalle(DetailView):
+    model = Producto
+    template_name = 'producto_detalle.html'
+
+class Agua(ListView):
     template_name='agua.html'
+    model = Producto
+    paginate_by = 9
+    ordering= ['nombre']
+    def get_queryset(self):
+        return Producto.objects.filter(tipo_id = 1)
+
+    context_object_name = 'productos'
+    
+    
+    
+
 class ProductoView(TemplateView):
     template_name='productos.html'
-class KitIniciales(TemplateView):
+
+class KitIniciales(ListView):
     template_name='kit-iniciales.html'
+    model = Producto
+    paginate_by = 9
+    ordering= ['nombre']
+    def get_queryset(self):
+        return Producto.objects.filter(tipo_id = 2)
+class DispAcces(ListView):
+    template_name='dispacces.html'
+    model = Producto
+    paginate_by = 9
+    ordering= ['nombre']
+    def get_queryset(self):
+        return Producto.objects.filter(tipo_id = 3)
+    context_object_name = 'productos'
 class Planes(TemplateView):
     template_name='planes.html'
-
+ #BORRAR ESTA CLASE QUE FUE USADA PARA CREAR LA LISTAX
 class ListarTodosProductos(ListView):
-    template_name='lista_todos_productos.html'
+    template_name='lista.html'
     paginate_by = 9
     model = Producto
     context_object_name = 'productos'
-
-class ProductoDetalle(DetailView):
-    def get_queryset(self):
-        try:
-            return 0
-        except:
-            return 0

@@ -22,7 +22,7 @@ class CarritoAdmin(admin.ModelAdmin):
     list_display = ('id','valor_carro')
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('id','nombre','precio','foto')
+    list_display = ('id','nombre','categoria','tipo','foto')
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('id','nombre')
@@ -30,11 +30,8 @@ class CategoriaAdmin(admin.ModelAdmin):
 class ContactoAdmin(admin.ModelAdmin):
     list_display = ('id','p_nombre','p_apellido','numero')
 
-class KitAdmin(admin.ModelAdmin):
-    list_display = ('id','nombre')
-
-class PromocionAdmin(admin.ModelAdmin):
-    list_display = ('id','nombre')
+class TipoAdmin(admin.ModelAdmin):
+    list_display= ('id','nombre')
 
 
 admin.site.register(Usuario,UsuarioAdmin)
@@ -46,6 +43,5 @@ admin.site.register(Carrito,CarritoAdmin)
 admin.site.register(Producto,ProductoAdmin)
 admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Contacto,ContactoAdmin)
-admin.site.register(Kit,KitAdmin)
-admin.site.register(Promocion,PromocionAdmin)
+admin.site.register(Tipo,TipoAdmin)
 
