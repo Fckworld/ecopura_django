@@ -32,6 +32,8 @@ class ContactoAdmin(admin.ModelAdmin):
 
 class TipoAdmin(admin.ModelAdmin):
     list_display= ('id','nombre')
+class MensajeAdmin(admin.ModelAdmin):
+    list_display= ('id','correo')
 
 
 admin.site.register(Usuario,UsuarioAdmin)
@@ -44,4 +46,5 @@ admin.site.register(Producto,ProductoAdmin)
 admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Contacto,ContactoAdmin)
 admin.site.register(Tipo,TipoAdmin)
+admin.site.register(Mensaje,MensajeAdmin)
 

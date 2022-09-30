@@ -1,6 +1,3 @@
-from distutils.command.upload import upload
-from turtle import back
-from xml.etree.ElementTree import tostring
 from django.db import models
 """
 SI BORRO UNO DATO DE PLACE, AUTOMATICAMENTE, SE BORRARÀ UNO DE RESUTARUANTE,
@@ -23,6 +20,27 @@ class Usuario(models.Model):
     
     def __str__(self):
         return self.correo
+class Mensaje(models.Model):
+    p_nombre = models.CharField(max_length=100)
+    p_apellido = models.CharField(max_length=100)
+    empresa = models.CharField(max_length=100, null = True)
+    telefono = models.IntegerField()
+    rut_empresa = models.CharField(max_length=12, null = True)
+    rut_ver_empresa = models.CharField(max_length=1, null = True)
+    correo = models.EmailField(unique=True)
+    BASIC = 'BS'
+    ELECTRIC = 'EL'
+    AMBAS = 'AB'
+    CHOICES = [
+        (BASIC,'Básico'),
+        (ELECTRIC,'Eléctrico'),
+        (AMBAS,'Ambos',)
+    ]
+    detalle_dispensador = models.CharField(max_length=2, choices=CHOICES, default=BASIC,)
+    detalle_texto = models.TextField(null = True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    creacion = models.DateTimeField(auto_now_add=True)
+    
 
 class Cliente(models.Model):
     p_nombre = models.CharField(max_length=100)
