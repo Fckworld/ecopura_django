@@ -61,9 +61,8 @@ class DispAcces(ListView):
     context_object_name = 'productos'
 
 class Planes(TemplateView):
-    template_name='contacto.html'
-    success_url= reverse_lazy('pruebaApp:formulario_url')
-    success_message= 'GUARDADO COMPLETADO'
+    template_name='planes.html'
+
 
  #BORRAR ESTA CLASE QUE FUE USADA PARA CREAR LA LISTAX
 class ListarTodosProductos(ListView):
