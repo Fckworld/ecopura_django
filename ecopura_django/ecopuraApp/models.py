@@ -15,19 +15,19 @@ class Direccion(models.Model):
 class Usuario(models.Model):
     correo = models.EmailField(unique=True)
     creacion = models.DateTimeField(auto_now_add=True)
-    numero = models.CharField(max_length=30,null=True)
-    direccion = models.ManyToManyField(Direccion, blank= True)
+    numero = models.CharField(max_length=30,null=True, blank = True)
+    direccion = models.ManyToManyField(Direccion, null = True, blank= True)
     
     def __str__(self):
         return self.correo
 class Mensaje(models.Model):
     p_nombre = models.CharField(max_length=100)
     p_apellido = models.CharField(max_length=100)
-    empresa = models.CharField(max_length=100, null = True)
+    empresa = models.CharField(max_length=100, null = True, blank = True)
     telefono = models.IntegerField()
-    rut_empresa = models.CharField(max_length=12, null = True)
-    rut_ver_empresa = models.CharField(max_length=1, null = True)
-    correo = models.EmailField(unique=True)
+    rut_empresa = models.CharField(max_length=12, null = True, blank = True)
+    rut_ver_empresa = models.CharField(max_length=1, null = True, blank = True)
+    correo = models.EmailField()
     BASIC = 'BS'
     ELECTRIC = 'EL'
     AMBAS = 'AB'
@@ -38,7 +38,7 @@ class Mensaje(models.Model):
     ]
     detalle_dispensador = models.CharField(max_length=2, choices=CHOICES, default=BASIC,)
     detalle_texto = models.TextField(null = True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = True, blank = True)
     creacion = models.DateTimeField(auto_now_add=True)
     
 
@@ -74,7 +74,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.IntegerField()
     descripcion = models.CharField(max_length=300)
-    foto = models.ImageField(null = True, blank = True)
+    foto = models.ImageField(null = True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE, null= True)
     
@@ -84,7 +84,7 @@ class Producto(models.Model):
 class Carrito(models.Model):
     valor_carro = models.IntegerField()
     descuento = models.IntegerField()
-    producto = models.ManyToManyField(Producto,blank=True)
+    producto = models.ManyToManyField(Producto,null = True)
 
 
 class Boleta(models.Model):

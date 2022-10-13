@@ -29,10 +29,10 @@ class Agua(ListView):
     context_object_name = 'productos'
     
 class CrearContacto(CreateView):
-    model= Mensaje
     template_name='contacto.html'
-    fields = "__all__"
-    if Mensaje.objects.values_list('id')==Usuario.objects.values_list('id'):
+    form_class = CrearContactoForm
+    success_url= reverse_lazy('ecopuraApp:contacto_url')
+    if Mensaje.objects.values_list('correo')==Usuario.objects.values_list('correo'):
         print('Este usuario ya existe')
     
     
