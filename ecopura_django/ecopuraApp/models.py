@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 """
 SI BORRO UNO DATO DE PLACE, AUTOMATICAMENTE, SE BORRARÀ UNO DE RESUTARUANTE,
 Y POR ENDE, TAMBIE  UNO DE WAITER
@@ -25,7 +26,7 @@ class Mensaje(models.Model):
     p_apellido = models.CharField(max_length=100)
     empresa = models.CharField(max_length=100, null = True, blank = True)
     telefono = models.IntegerField()
-    rut_empresa = models.CharField(max_length=12, null = True, blank = True)
+    rut_empresa = models.CharField(max_length=13, null = True, blank = True)
     rut_ver_empresa = models.CharField(max_length=1, null = True, blank = True)
     correo = models.EmailField()
     BASIC = 'BS'

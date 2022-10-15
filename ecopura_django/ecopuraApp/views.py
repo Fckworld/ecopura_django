@@ -1,7 +1,7 @@
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-from django.shortcuts import render
+from django.shortcuts import redirect
 
 from ecopuraApp.models import *
 from ecopuraApp.forms import *
@@ -32,11 +32,12 @@ class CrearContacto(CreateView):
     template_name='contacto.html'
     form_class = CrearContactoForm
     success_url= reverse_lazy('ecopuraApp:contacto_url')
-    if Mensaje.objects.values_list('correo')==Usuario.objects.values_list('correo'):
-        print('Este usuario ya existe')
     
-    
-    
+    def post(self, request, *args, **kwargs):
+        form =  self.form_class(request.POST)
+        if form.is_valid:
+            print("La trini es horrible ")
+            return redirect()
 
     
 
