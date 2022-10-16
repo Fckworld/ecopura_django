@@ -16,7 +16,7 @@ urlpatterns = [
     path('dispacces',DispAcces.as_view(),name='dispacces_url'),
     path('lista',ListarTodosProductos.as_view(),name='listartodosproductos_url'),
     path('detalle/<int:pk>',ProductoDetalle.as_view(),name='detalle_url'),
-    path('contacto', CrearContacto.as_view(),name='contacto_rul'),
+    path('contacto', CrearContacto.as_view(),name='contacto_url'),
 
     ]
     #ESTO ME PERTMITE SERVIR LOS ARCHIVOS STATICOS 
