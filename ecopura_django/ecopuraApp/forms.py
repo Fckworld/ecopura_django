@@ -1,7 +1,5 @@
 from django import forms
-<<<<<<< HEAD
 from ecopuraApp.models import Mensaje
-=======
 from ecopuraApp.models import *
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, HTML, Field, Div, Column,Row
@@ -68,4 +66,4 @@ class CrearContactoForm(forms.ModelForm):
                     css_class='col bg-secondary rounded',css_id='columna_form',
         )
         self.helper.layout = Layout(vl)
->>>>>>> d0bc0107887e106b4a53183fbcb996fbc06e144e
+
