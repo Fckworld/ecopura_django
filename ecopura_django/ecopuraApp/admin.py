@@ -4,8 +4,8 @@ from ecopuraApp.models import *
 # Register your models here.
 
 class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('id','correo')
-
+    list_display = ('id','correo','numero')
+ 
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('id','p_nombre','s_apellido')
 
@@ -33,7 +33,7 @@ class ContactoAdmin(admin.ModelAdmin):
 class TipoAdmin(admin.ModelAdmin):
     list_display= ('id','nombre')
 class MensajeAdmin(admin.ModelAdmin):
-    list_display= ('id','correo')
+    list_display= ('id','correo','detalle_texto')
 
 
 admin.site.register(Usuario,UsuarioAdmin)
