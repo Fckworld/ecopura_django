@@ -19,5 +19,4 @@ urlpatterns = [
     path('contacto', CrearContacto.as_view(),name='contacto_url'),
 
     ]
-    #ESTO ME PERTMITE SERVIR LOS ARCHIVOS STATICOS 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

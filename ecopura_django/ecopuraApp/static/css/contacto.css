@@ -2,6 +2,10 @@
     font-family:Futura-Pt-Light;
     src: url(../fonts/Futura-Pt-Light.otf);
 }
+@font-face {
+    font-family:Gilroy-ExtraBold;
+    src: url(../fonts/Gilroy-ExtraBold.otf);
+}
 form{
     max-width: 350px;
 }
@@ -12,32 +16,23 @@ form{
 label{
     font-family: Futura-Pt-Light;
 }
-.textinput.textInput.form-control{
+
+.form-control{
     font-size: 20px;
     border-radius: 30px;
     background-color: #efeff4;
     font-family: Futura-Pt-Light;
- 
 }
-.numberinput.form-control{
-    font-size: 20px;
+#guardar_contacto{
+    max-width: 150px;
+    height: 50px;
+    background-color: #004195;
     border-radius: 30px;
-    background-color: #efeff4;
-    font-family: Futura-Pt-Light;
+    border: 0;
+    color: white;
+    font-family: Gilroy-ExtraBold;
 }
 
-.select.custom-select.form-control{
-    font-size: 20px;
-    border-radius: 30px;
-    background-color: #efeff4;
-    font-family: Futura-Pt-Light;
-}
-.textarea.form-control{
-    font-size: 20px;
-    border-radius: 30px;
-    background-color: #efeff4;
-    font-family: Futura-Pt-Light;
-}
 
 @media (min-width: 768px) { 
     form{

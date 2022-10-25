@@ -18,11 +18,11 @@ class CrearContactoForm(forms.ModelForm):
     p_apellido = forms.CharField(max_length=100, label='Apellido', widget=forms.TextInput(
         attrs={'placeholder': 'Escriba su apellido'}))
     empresa = forms.CharField(max_length=100, label='Empresa', required=False,
-                              widget=forms.TextInput(attrs={'placeholder': 'Opcional*'}))
+                              widget=forms.TextInput(attrs={'placeholder': 'Opcional'}))
     telefono = forms.IntegerField(label='Teléfono', widget=forms.NumberInput(
         attrs={'placeholder': 'Ingresar número'}))
     rut_empresa = forms.CharField(max_length=13, label='Rut', required=False, validators=[RegexValidator(
-        r'^\d\d.\d\d\d.\d\d\d-\d$', message='xx.xxx.xxx-x'), ], widget=forms.TextInput(attrs={'placeholder': 'Ingrese rut'}))
+        r'^(\d{1,3}(?:\.\d{1,3}){2}-[\dkK])$', message='xx.xxx.xxx-x'), ], widget=forms.TextInput(attrs={'placeholder': '11.111.111-1'}))
     #rut_ver_empresa = forms.CharField(max_length=1,label='',widget=forms.TextInput(attrs={'placeholder':'CV'}))
     correo = forms.EmailField(label='Correo')
     BASIC = 'BS'
