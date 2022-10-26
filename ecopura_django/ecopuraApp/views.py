@@ -1,3 +1,4 @@
+from pipes import Template
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
@@ -109,7 +110,6 @@ class Planes(CreateView):
     model = Mensaje
     template_name='planes.html'
     form_class = CrearContactoForm
-    success_url= reverse_lazy('ecopuraApp:contacto_url')
     
     #Considerar que cuando llamo a la funcion post, tengo que sobre escribir
     #tanto si esta validando como el save.
@@ -157,7 +157,7 @@ class Planes(CreateView):
                 # nuevo_mensaje.usuario = nuevo_usuario
                 # Mensaje.objects.filter(id=Mensaje.objects.filter(nuevo_mensaje.correo).value('id')).update(usuario=Usuario.objects.filter(correo=nuevo_mensaje.correo))
 
-            return redirect('ecopuraApp:contacto_url')
+            return redirect('ecopuraApp:successfull_url')
         
         else:
             return render(request, self.template_name, {'form': form})
@@ -171,3 +171,17 @@ class ListarTodosProductos(ListView):
     model = Producto
     context_object_name = 'productos'
 
+class Succesfull(TemplateView):
+    template_name = 'sucessfull.html'
+
+class PreguntasFrecuentes(TemplateView):
+    template_name = 'preguntas-frecuentes.html'
+
+class PoliticasDespacho(TemplateView):
+    template_name = 'politicas-despacho.html'
+class Garantia(TemplateView):
+    template_name= 'garantia.html'
+class ZonaDespacho(TemplateView):
+    template_name='zona-despacho.html'
+class TratamientoAguas(TemplateView):
+    template_name='tratamiento-aguas.html'

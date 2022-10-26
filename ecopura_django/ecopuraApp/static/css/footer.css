@@ -10,14 +10,22 @@ footer{
 p{
     font-weight: lighter;
 }
-h3{
-  font-size: 30px;
-  margin: 30px auto;
+
+a{
+    text-decoration: none;
+    color: #204e9d;
 }
 .row{
     padding-top: 30px;
     display: flex;
     justify-content: space-around;
+}
+a:visited{
+    text-decoration: none;
+    color: #204e9d;
+}
+#links-footer a{
+    color: white;
 }
 
 footer .col-md{
@@ -32,28 +40,3 @@ footer .col-md{
 #redes img{
     max-width: 70px;
 }
-
-
-@media (min-width: 576px) {
-    
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-
- }
-
-/* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
-    
- }
-
-/* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
- }
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { 
-    
- }

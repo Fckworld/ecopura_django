@@ -1,0 +1,18 @@
+@font-face{
+    font-family: Rubik-Light ;
+    src: url(../fonts/Rubik-Light.ttf);
+}
+ol{
+    max-width: 300px;
+    margin: auto;
+}
+li{
+    font-family:Rubik-Light ;
+    text-align: justify;
+    margin: 15px auto;
+}
+@media (min-width: 576px) {
+    ol{
+        max-width: 700px;
+    }
+}

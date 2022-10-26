@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block title%}
+    Kit Iniciales
+{%endblock%}
+{% block content%}
+<img class="img-fluid" src="{% static 'img/contacto.png' %}" alt="">
+<div class="row mb-5">
+    <div class="col-6 d-flex justify-content-center">MAPA</div>
+    <div class="col-6">{%include "formulario.html"%}</div>
+</div>
+
+{%endblock%}

@@ -20,7 +20,7 @@
   <body>
     {% include "navbar.html"%}
     <img id="img-1-responsive" class="img-fluid" src="{% static 'img/1-responsive.png'%}" alt="">
-    <img id="img-1" class="img-fluid" src="{% static 'img/1.png'%}" alt="">
+    <img id="img-1" class="img-fluid w-100" src="{% static 'img/1.png'%}" alt="">
     <div id="contenedor-promociones" class="container-fluid py-5 d-flex align-items-center justify-content-center">
         <h2 class="text-center display-4" >PROMOCIONES ESPECIALES</h2>
     </div>
@@ -136,9 +136,6 @@
       <h2 class="text-center display-4 py-5 " >Productos Destacados</h2>
     </div>
     {%include "lista.html"%}
-
-
-
 
 
   {% include "footer.html"%}

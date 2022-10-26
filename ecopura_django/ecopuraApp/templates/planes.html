@@ -4,89 +4,97 @@
 {% load crispy_forms_tags %}
 
 {%block title%}
-    Planes
+Planes
 {%endblock%}
 
 {% block content%}
-<img class="img-fluid" src="../static/img/planes.png" alt="">
+<img class="img-fluid" src="{% static 'img/planes.png' %}" alt="">
 <link rel="stylesheet" href="{% static 'css/planes.css' %}">
 <div id="accordion">
-    <div class="card">
-          <button class="btn d-flex justify-content-start" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <div class="row px-3 w-100">
-                <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
-                    <h1>01</h1>
-                </div>
-                <div class="col-md-10 pl-3 d-flex justify-content-start">
-                    <h1>Plan básico</h1>
-                </div>
-
-            </div>
-          </button>
-  
-      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-        <div class="card-body">
-            Dispensador sobremesa ventilador, entrega agua fría y caliente al instante  Incluye reposición mensual de 3 bidones de 20 lts agua purificada  Modelo de dispensador sujeto a stock 
+  <div class="card">
+    <button class="btn d-flex justify-content-start" data-toggle="collapse" data-target="#collapseOne"
+      aria-expanded="true" aria-controls="collapseOne">
+      <div class="row px-3 w-100">
+        <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+          <h1>01</h1>
         </div>
+        <div class="col-md-10 pl-3 d-flex justify-content-start">
+          <h1>Plan básico</h1>
+        </div>
+
+      </div>
+    </button>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        Dispensador sobremesa ventilador, entrega agua fría y caliente al instante Incluye reposición mensual de 3
+        bidones de 20 lts agua purificada Modelo de dispensador sujeto a stock
       </div>
     </div>
-    <div class="card">
-      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        <div class="row px-3 w-100">
-            <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
-                <h1>02</h1>
-            </div>
-            <div class="col-md-10 pl-3 d-flex justify-content-start">
-                <h1>Plan Estándar</h1>
-            </div>
-
-        </div>
-      </button>
-
-  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-    <div class="card-body">
-      Dispensador pedestal agua fría y caliente al instante  Incluye reposición mensual de 5 bidones de 20 lts agua purificada  Modelo de dispensador sujeto a stock.
-    </div>
   </div>
-    </div>
-    <div class="card">
-      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        <div class="row px-3 w-100">
-            <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
-                <h1>03</h1>
-            </div>
-            <div class="col-md-10 pl-3 d-flex justify-content-start">
-                <h1>Plan Premium</h1>
-            </div>
-
+  <div class="card">
+    <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseTwo"
+      aria-expanded="false" aria-controls="collapseTwo">
+      <div class="row px-3 w-100">
+        <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+          <h1>02</h1>
         </div>
-      </button>
-
-  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-    <div class="card-body">
-      Dispensador pedestal agua fría y caliente al instante  Incluye reposición mensual de 10 bidones de 20 lts agua purificada  Modelo de dispensador sujero a stock.
-    </div>
-  </div>
-    </div>
-    <div class="card">
-        <div class="row px-3 w-100">
-            <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
-                <h1>04</h1>
-            </div>
-            <div class="col-md-10 pl-3 d-flex justify-content-start ">
-                <h1>Plan Personalizado</h1>
-            </div>
-
+        <div class="col-md-10 pl-3 d-flex justify-content-start">
+          <h1>Plan Estándar</h1>
         </div>
 
+      </div>
+    </button>
 
-  <div id="collapseTFour">
-    <div class="card-body">
-
-      {%include "formulario.html"%}
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        Dispensador pedestal agua fría y caliente al instante Incluye reposición mensual de 5 bidones de 20 lts agua
+        purificada Modelo de dispensador sujeto a stock.
+      </div>
     </div>
   </div>
+  <div class="card">
+    <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseThree"
+      aria-expanded="false" aria-controls="collapseThree">
+      <div class="row px-3 w-100">
+        <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+          <h1>03</h1>
+        </div>
+        <div class="col-md-10 pl-3 d-flex justify-content-start">
+          <h1>Plan Premium</h1>
+        </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+      </div>
+    </button>
+
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        Dispensador pedestal agua fría y caliente al instante Incluye reposición mensual de 10 bidones de 20 lts agua
+        purificada Modelo de dispensador sujero a stock.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="row px-3 w-100">
+      <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+        <h1>04</h1>
+      </div>
+      <div class="col-md-10 pl-3 d-flex justify-content-start ">
+        <h1>Plan Personalizado</h1>
+      </div>
+
+    </div>
+
+
+    <div id="collapseTFour">
+      <div class="card-body d-flex justify-content-center">
+
+        {%include "formulario.html"%}
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
 {%endblock%}

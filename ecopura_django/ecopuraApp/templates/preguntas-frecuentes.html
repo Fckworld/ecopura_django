@@ -1,0 +1,313 @@
+{% extends 'base.html'%}
+{% load static%}
+
+{%block title%}
+    Preguntas Frecuentes
+{%endblock%}
+
+{% block content%}
+
+<link rel="stylesheet" href="{% static 'css/planes.css' %}">
+<img class="img-fluid" src="{% static 'img/preguntas-frecuentes.png' %}" alt="">
+<div id="accordion">
+    <div class="card">
+      <button class="btn d-flex justify-content-start" data-toggle="collapse" data-target="#collapseOne"
+        aria-expanded="true" aria-controls="collapseOne">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>01</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>Tratamiento de aguas</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            Nuestro equipo de profesionales consta de ingenieros químicos y especialistas en tratamiento de aguas, por lo que ofrecemos servicio de asesoría, venta de equipos e instalación de proyectos en la materia
+            Algunos de nuestros servicios son:
+            Diseño y asesoría plantas embotelladoras 
+                Diseñamos plantas de purificación de agua embotellada, según cantidad de producción, infraestructura y costos disponibles.​
+                Asesoría, plan de mantenimiento preventivo, correctivo y visitas técnicas que asegurarán el correcto funcionamiento de tu planta de agua purificada y la calidad que garantiza tu negocio.
+                Asistencia técnica de emergencia.
+                Contamos con venta de insumos.</div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="false" aria-controls="collapseTwo">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>02</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>Servicio Técnico</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+            -Contamos con un equipo de técnicos especializados en instalación de equipos de tratamiento de aguas (filtros abatidores, ablandadores de agua y equipo de osmosis inversa), quienes brindan un servicio personalizado en función de las condiciones estructurales de cada cliente. Capacitamos he instruimos al personal operador para asegurar el correcto uso de los sistemas a instalar.
+            -Realizamos visitas técnicas sin costo con el fin de realizar un levantamiento personalizado y acorde al tipo de requerimiento de cada cliente.
+            -Mantenimiento preventivo y correctivo de plantas de ósmosis inversa, ablandadores de agua y sistemas de filtración.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>03</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>Potabilización, Ablandadores y  Filtos abatidores</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+            Una de las fuentes de agua más comunes son las napas subterráneas, las que debido a la erosión de los suelos brindan diferentes minerales y materia orgánica al agua. La norma de agua potable chilena establece parámetros mínimos y máximos de compuestos presentes en el agua, lo que nos asegura el consumo de esta. Según análisis químico realizamos el diseño y proyección de equipos y químicos adecuados para cumplir con la norma NCh409.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseFour"
+          aria-expanded="false" aria-controls="collapseFour">
+          <div class="row px-3 w-100">
+            <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+              <h1>04</h1>
+            </div>
+            <div class="col-md-10 pl-3 d-flex justify-content-start">
+              <h1>¿Puede insertar una imagen, video o gif a mis preguntas frecuentes?</h1>
+            </div>
+    
+          </div>
+        </button>
+    
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+              Una de las fuentes de agua más comunes son las napas subterráneas, las que debido a la erosión de los suelos brindan diferentes minerales y materia orgánica al agua. La norma de agua potable chilena establece parámetros mínimos y máximos de compuestos presentes en el agua, lo que nos asegura el consumo de esta. Según análisis químico realizamos el diseño y proyección de equipos y químicos adecuados para cumplir con la norma NCh409.
+          </div>
+        </div>
+    </div>
+    <div class="card">
+        <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseFive"
+          aria-expanded="false" aria-controls="collapseFive">
+          <div class="row px-3 w-100">
+            <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+              <h1>05</h1>
+            </div>
+            <div class="col-md-10 pl-3 d-flex justify-content-start">
+              <h1>¿Cómo puede editar o quitar el título de las preguntas frecuentes?</h1>
+            </div>
+    
+          </div>
+        </button>
+    
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+          <div class="card-body">
+            Puedes editar el título desde la pestaña de opciones en la app. Si no quieres mostrar el título, desactiva la opción desde 'Información a mostrar'.
+          </div>
+        </div>
+    </div>
+    <div class="card">
+        <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseSix"
+          aria-expanded="false" aria-controls="collapseSix">
+          <div class="row px-3 w-100">
+            <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+              <h1>06</h1>
+            </div>
+            <div class="col-md-10 pl-3 d-flex justify-content-start">
+              <h1>¿Qué es el agua purificada?</h1>
+            </div>
+    
+          </div>
+        </button>
+    
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+          <div class="card-body">
+            El Agua Purificada es un tipo de Agua Potable donde las impurezas se reducen hasta tal punto que son casi imperceptibles.El agua purificada pasa por un proceso de tratamiento y filtración muy riguroso que elimina todos los rastros de contaminantes que pudieron estar presentes en ella.
+          </div>
+        </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseSeven"
+        aria-expanded="false" aria-controls="collapseSeven">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>07</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>¿Qué es el agua alcalina ?</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+        <div class="card-body">
+          El agua alcalina es un tipo de agua ionizada que actúa como un potente y natural antioxidante, hidrata hasta 6 veces más que el agua tradicional, con capacidad de ayudar al organismo a eliminar los desechos ácidos que produce el proceso natural de la digestión, entre otros.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseEight"
+        aria-expanded="false" aria-controls="collapseEight">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>08</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>¿Tienen despacho a domicilio?</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+        <div class="card-body">
+          Si, tenemos despacho a domicilio disponible para gran parte de la Región Metropolitana.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseNine"
+        aria-expanded="false" aria-controls="collapseNine">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>09</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>¿Reciben bidones de otras marcas?</h1>
+          </div>
+        </div>
+      </button>
+      <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+        <div class="card-body">
+          Sí, recibimos bidones de otras marcas siempre y cuando este no presente roturas ni abollones.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseTen"
+        aria-expanded="false" aria-controls="collapseTen">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>10</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>¿Cuál es la diferencia entre ventilador y compresor?</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordion">
+        <div class="card-body">
+          Dispensador con ventilador
+          El dispensador utiliza un ventilador para enfriar el agua, se recomienda ubicar en un sector ventilado, debido que si la temperatura ambiente es elevada, demorará un poco más en llegar a la temperatura indicada.
+          Dispensador con compresor
+          El dispensador utiliza un sistema eléctrico con un pequeño compresor para enfriar el agua, parecido al refrigerador, independiente de la temperatura ambiente, el agua siempre estará a la temperatura indicada.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseEleven"
+        aria-expanded="false" aria-controls="collapseEleven">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>11</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>¿Cómo puedo hacer un pedido?</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordion">
+        <div class="card-body">
+          ¿Cómo puedo hacer un pedido?
+          Si deseas realizar un pedido, tienes varias formas de hacerlo:
+          Compra directamente en nuestro sitio web
+          Compra a través de nuestras redes sociales oficiales
+          Compra a través de nuestros teléfonos oficiales, ya sea por WhatsApp o llamado telefónico
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseTwelve"
+        aria-expanded="false" aria-controls="collapseTwelve">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>12</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>Plan básico</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordion">
+        <div class="card-body">
+          Dispensador sobremesa ventilador, entrega agua fría y caliente al instante  Incluye reposición mensual de 3 bidones de 20 lts agua purificada  Modelo de dispensador sujeto a stock.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseThierteen"
+        aria-expanded="false" aria-controls="collapseThierteen">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>13</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>Plan Estándar</h1>
+          </div>
+  
+        </div>
+      </button>
+  
+      <div id="collapseThierteen" class="collapse" aria-labelledby="headingThierteen" data-parent="#accordion">
+        <div class="card-body">
+          Dispensador pedestal agua fría y caliente al instante  Incluye reposición mensual de 5 bidones de 20 lts agua purificada  Modelo de dispensador sujeto a stock.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <button class="btn d-flex justify-content-start collapsed" data-toggle="collapse" data-target="#collapseFourteen"
+        aria-expanded="false" aria-controls="collapseFourteen">
+        <div class="row px-3 w-100">
+          <div id="ac_sup" class="col-md-2 pl-3 d-flex justify-content-start">
+            <h1>14</h1>
+          </div>
+          <div class="col-md-10 pl-3 d-flex justify-content-start">
+            <h1>Plan Premium</h1>
+          </div>
+        </div>
+      </button>
+      <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordion">
+        <div class="card-body">
+          Dispensador pedestal agua fría y caliente al instante  Incluye reposición mensual de 10 bidones de 20 lts agua purificada  Modelo de dispensador sujero a stock.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+    
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+
+{%endblock%}

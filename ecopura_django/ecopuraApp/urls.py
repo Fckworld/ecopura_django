@@ -17,6 +17,11 @@ urlpatterns = [
     path('lista',ListarTodosProductos.as_view(),name='listartodosproductos_url'),
     path('detalle/<int:pk>',ProductoDetalle.as_view(),name='detalle_url'),
     path('contacto', CrearContacto.as_view(),name='contacto_url'),
-
+    path('succesfull',Succesfull.as_view(),name='successfull_url'),
+    path('preguntas-frecuentes',PreguntasFrecuentes.as_view(),name='preguntasfrecuentes_url'),
+    path('politicas-despacho',PoliticasDespacho.as_view(),name='politicasdespacho_url'),
+    path('garantia',Garantia.as_view(),name='garantia_url'),
+    path('zona-despacho',ZonaDespacho.as_view(),name='zonadespacho_url'),
+    path('tratamiendo-de-aguas',TratamientoAguas.as_view(),name = 'tratamientoaguas_url'),
     ]
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

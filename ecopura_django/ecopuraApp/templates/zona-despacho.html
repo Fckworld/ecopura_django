@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block title%}
+    Zonas de despacho
+{%endblock%}
+{% block content%}
+<img class="img-fluid" src="{% static 'img/zona-despacho.png' %}" alt="">
+<div class="row mx-auto d-flex justify-content-center">
+    <img class="img-fluid p-0 w-25" src="{% static 'img/precios.png' %}" alt="">
+    <img class="img-fluid p-0 w-50" src="{% static 'img/mapa.png' %}" alt="">
+</div>
+{%endblock%}

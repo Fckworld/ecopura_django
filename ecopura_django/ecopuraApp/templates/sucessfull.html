@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% load static%}
+{%block title%}
+    Kit Iniciales
+{%endblock%}
+{% block content%}
+<div class="container-fluid my-5">
+    <div class="row d-flex justify-content-center">
+        <h1 style="color:#204e9d ;" class="text-center">¡Nos contactaremos con usted a la brevedad!</h1>
+        <div class="col text-center">
+            <a href="{% url 'ecopuraApp:inicio_url' %}"><button href="{% url 'ecopuraApp:inicio_url' %}" class="text-center" style="width: 200px; border: 0; border-radius: 30px; height: 40px; background-color: #00a9ff; color: white;">Inicio</button></a>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
