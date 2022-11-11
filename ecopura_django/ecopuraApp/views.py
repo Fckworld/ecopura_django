@@ -3,6 +3,7 @@ from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, render
+from django.core.mail import send_mail
 
 from ecopuraApp.models import *
 from ecopuraApp.forms import *
@@ -53,13 +54,9 @@ class CrearContacto(CreateView):
             )
             cv = str(nuevo_mensaje.rut_empresa).partition('-')[2]
             nuevo_mensaje.rut_ver_empresa = cv
-            print('He guardado el mensaje')
-            print(nuevo_mensaje.correo)
-            print('AHORA VERIFICO SI EXISTE O NO USUARIO CON ESTE CORREO')
+
             #SI EXISTE UN USUARIO CON EL CORREO DEL MENSAJE, ENTONCES
             if Usuario.objects.filter(correo=nuevo_mensaje.correo):
-                print('EXISTE CORREO, ACTUALIZAR MENSAJE CON EL USUARIO EXISTENTE')
-                print(Usuario.objects.filter(correo=nuevo_mensaje.correo).get())
                 #VINCULO EL CORREO DEL MENSAJE CON EL CORREO DEL USUARIO EXISTENTE
                 nuevo_mensaje.usuario = Usuario.objects.filter(correo=nuevo_mensaje.correo).get()
                 nuevo_mensaje.save()
@@ -70,16 +67,16 @@ class CrearContacto(CreateView):
                 nuevo_usuario.save()
                 nuevo_mensaje.usuario = nuevo_usuario
                 nuevo_mensaje.save()
-                print(nuevo_usuario)
-
-
-
-                
-                # nuevo_mensaje.save()
-                # nuevo_usuario = Usuario.objects.create(correo=nuevo_mensaje.correo)
-                # nuevo_usuario.save()
-                # nuevo_mensaje.usuario = nuevo_usuario
-                # Mensaje.objects.filter(id=Mensaje.objects.filter(nuevo_mensaje.correo).value('id')).update(usuario=Usuario.objects.filter(correo=nuevo_mensaje.correo))
+            
+            contenido_mensaje ='"'+nuevo_mensaje.p_nombre+' '+nuevo_mensaje.p_apellido+'" esta tratando de contactarnos, nos dice:'+'"'+nuevo_mensaje.detalle_texto+'"'
+            
+            send_mail(
+                'CONTACTO ECOPURA',
+                contenido_mensaje,
+                'e5520aa04652f9',
+                ['ecopurachilecontacto@ecopurachile.cl'],
+                fail_silently=False,
+            )
 
             return redirect('ecopuraApp:contacto_url')
         
@@ -127,38 +124,44 @@ class Planes(CreateView):
                 detalle_texto = form.cleaned_data.get('detalle_texto'),
                 creacion = form.cleaned_data.get('creacion'),
             )
+            #SACO EL CV
             cv = str(nuevo_mensaje.rut_empresa).partition('-')[2]
+            #LO GUARDO EN SU CAMPO CORRESPONDIENTE
             nuevo_mensaje.rut_ver_empresa = cv
-            print('He guardado el mensaje')
-            print(nuevo_mensaje.correo)
-            print('AHORA VERIFICO SI EXISTE O NO USUARIO CON ESTE CORREO')
+
             #SI EXISTE UN USUARIO CON EL CORREO DEL MENSAJE, ENTONCES
             if Usuario.objects.filter(correo=nuevo_mensaje.correo):
-                print('EXISTE CORREO, ACTUALIZAR MENSAJE CON EL USUARIO EXISTENTE')
-                print(Usuario.objects.filter(correo=nuevo_mensaje.correo).get())
                 #VINCULO EL CORREO DEL MENSAJE CON EL CORREO DEL USUARIO EXISTENTE
+                #EL USUARIO DE ESTE MENSAJE VA A SER EL USUARION QUE YA TIENE ESE CORREO REGISTADO.
                 nuevo_mensaje.usuario = Usuario.objects.filter(correo=nuevo_mensaje.correo).get()
+                #GUARDO EL MENSAJE EN BD CON USUARIO VINCULADO
                 nuevo_mensaje.save()
+
             #SINO NO EXISTE, CREO EL NUEVO USUARIO USANDO EL CORREO DEL MENSAJE
             else:
-
+                #CREO USUARIO SOLO CON CORREO
                 nuevo_usuario = Usuario(correo=nuevo_mensaje.correo)
+                #GUARDO NUEVO USUARIO (REPITO, SOLO TIENE EL CORREO(NO ES CLIENTE))
                 nuevo_usuario.save()
+                #AHORA QUE TENGO EL USUARIO NUEVO, LO VINCULO CON EL MENSAJE
                 nuevo_mensaje.usuario = nuevo_usuario
+                #GUARDO EL MENSAJE EN BD CON USUARIO VINCULADO
                 nuevo_mensaje.save()
-                print(nuevo_usuario)
-
-
-
-                
-                # nuevo_mensaje.save()
-                # nuevo_usuario = Usuario.objects.create(correo=nuevo_mensaje.correo)
-                # nuevo_usuario.save()
-                # nuevo_mensaje.usuario = nuevo_usuario
-                # Mensaje.objects.filter(id=Mensaje.objects.filter(nuevo_mensaje.correo).value('id')).update(usuario=Usuario.objects.filter(correo=nuevo_mensaje.correo))
+            
+            
+            contenido_mensaje ='NOMBRE:'+nuevo_mensaje.p_nombre+' '+nuevo_mensaje.p_apellido+'. \n MENSAJE:'+nuevo_mensaje.detalle_texto+'.\nNUMERO DE CONTACTO:'+str(nuevo_mensaje.telefono)+'.\n EMPRESA:'+nuevo_mensaje.empresa+'.\n RUT EMPRESA:'+nuevo_mensaje.rut_empresa
+            
+            send_mail(
+                'CONTACTO ECOPURA',
+                contenido_mensaje,
+                'e5520aa04652f9',
+                ['ecopurachilecontacto@ecopurachile.cl'],
+                fail_silently=False,
+            )
 
             return redirect('ecopuraApp:successfull_url')
         
+        #SI EL FORMULARIO NO PASA LAS VALIDACIONES, SE ACTUALIZA MOSTRANDO LOS ERRORES
         else:
             return render(request, self.template_name, {'form': form})
 
@@ -185,3 +188,6 @@ class ZonaDespacho(TemplateView):
     template_name='zona-despacho.html'
 class TratamientoAguas(TemplateView):
     template_name='tratamiento-aguas.html'
+
+class InicioSesion(TemplateView):
+    template_name= 'inicio-sesion.html'

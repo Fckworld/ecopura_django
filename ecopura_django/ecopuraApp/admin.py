@@ -1,5 +1,7 @@
 from django.contrib import admin
 from ecopuraApp.models import *
+from django_google_maps import widgets as map_widgets
+from django_google_maps import fields as map_fields
 
 # Register your models here.
 
@@ -34,7 +36,10 @@ class TipoAdmin(admin.ModelAdmin):
     list_display= ('id','nombre')
 class MensajeAdmin(admin.ModelAdmin):
     list_display= ('id','correo','detalle_texto')
-
+class UbicacionAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        map_fields.AddressField: {'widget': map_widgets.GoogleMapsAddressWidget},
+    }
 
 admin.site.register(Usuario,UsuarioAdmin)
 admin.site.register(Cliente,ClienteAdmin)
@@ -47,4 +52,5 @@ admin.site.register(Categoria,CategoriaAdmin)
 admin.site.register(Contacto,ContactoAdmin)
 admin.site.register(Tipo,TipoAdmin)
 admin.site.register(Mensaje,MensajeAdmin)
+admin.site.register(Ubicacion,UbicacionAdmin)
 

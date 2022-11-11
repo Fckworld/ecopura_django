@@ -5,9 +5,11 @@
 {%endblock%}
 {% block content%}
 <img class="img-fluid" src="{% static 'img/contacto.png' %}" alt="">
-<div class="row mb-5">
-    <div class="col-6 d-flex justify-content-center">MAPA</div>
-    <div class="col-6">{%include "formulario.html"%}</div>
+<div class="row mb-5 mx-0">
+    <div class="col-md-6 d-flex justify-content-end">{%include "formulario.html"%}</div>
+    <div class="col-md-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.810218156525!2d-70.87458749999999!3d-33.610228299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662e7b3d2b4b1d5%3A0x9c7eb01ce525a5a3!2sEcopura%20Agua%20purificada!5e0!3m2!1ses-419!2scl!4v1667343816151!5m2!1ses-419!2scl" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </div>
 
 {%endblock%}

@@ -1,5 +1,8 @@
 from django.db import models
 from django.core.validators import RegexValidator
+
+from django_google_maps import fields as map_fields
+
 """
 SI BORRO UNO DATO DE PLACE, AUTOMATICAMENTE, SE BORRARÀ UNO DE RESUTARUANTE,
 Y POR ENDE, TAMBIE  UNO DE WAITER
@@ -18,9 +21,17 @@ class Usuario(models.Model):
     creacion = models.DateTimeField(auto_now_add=True)
     numero = models.CharField(max_length=30,null=True, blank = True)
     direccion = models.ManyToManyField(Direccion, null = True, blank= True)
+  
+    
     
     def __str__(self):
         return self.correo
+
+class Ubicacion(models.Model):
+    address = map_fields.AddressField(max_length=200)
+    geolocation = map_fields.GeoLocationField(max_length=100)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = True, blank = True)
+
 class Mensaje(models.Model):
     p_nombre = models.CharField(max_length=100)
     p_apellido = models.CharField(max_length=100)

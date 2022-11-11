@@ -18,6 +18,7 @@ a{
     color: #204e9d;
 }
 
+
 #navbarSupportedContent ul li ul li a{
     color: #204e9d;
 }
@@ -60,10 +61,12 @@ ul .dropdown-menu{
 
 #navbarDropdown{
     color: #204e9d;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #navbarSupportedContent{
-    max-width: 800px;
+    max-width: 1000px;
 }
 @media (min-width: 576px) {
 

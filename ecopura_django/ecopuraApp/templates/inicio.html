@@ -1,145 +1,128 @@
-{% load static %}
-{% load humanize %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'base.html'%}
+{% load static%}
+{%block title%}
+Bienvenido a Ecopura
+{%endblock%}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{%static 'css/inicio.css'%}">
-    
-    <title>
-      {%block title%}
-      Bienvenido a Ecopura!
-      {%endblock%}
-    </title>
-  </head>
-  <body>
-    {% include "navbar.html"%}
-    <img id="img-1-responsive" class="img-fluid" src="{% static 'img/1-responsive.png'%}" alt="">
-    <img id="img-1" class="img-fluid w-100" src="{% static 'img/1.png'%}" alt="">
-    <div id="contenedor-promociones" class="container-fluid py-5 d-flex align-items-center justify-content-center">
-        <h2 class="text-center display-4" >PROMOCIONES ESPECIALES</h2>
-    </div>
-    <div id='img-2' class="row mx-auto d-flex justify-content-end">
-      <div class="col">
-        <h3 class="my-3">APROVECHA AHORA Y RECARGA TUS</h3>
-        <h3 class="display-2 my-0">BOTELLONES</h3>
-        <h3 class="my-3">DE 12 Y 20 LTS</h3>
-        <a id="boton-productos" class="border border-white" href="">Ver productos</a>
-      </div>
-    </div>
-    <div id="servicios" class="row my-5">
-      <div class="col-md">
-        <ul class="p-0" >
-          <li>
-            <img class="img-fluid" src="{% static 'img/3-1.png'%}" alt="">
-          </li>
-          <li>
-            <a href="">Agua</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md">
-          <ul>
-            <li>
-              <img class="img-fluid" src="{% static 'img/3-2.png'%}" alt="">
-            </li>
-            <li>
-              <a href="">Kit iniciales</a>
-            </li>
-          </ul>
-      </div>
-      <div class="col-md">
-          <ul>
-            <li>
-              <img class="img-fluid" src="{% static 'img/3-3.png'%}" alt="">
-            </li>
-            <li>
-              <a href="">Planes</a>
-            </li>
-          </ul>
-      </div>
-      <div class="col-md">
-          <ul>
-            <li>
-              <img class="img-fluid" src="{% static 'img/3-4.png'%}" alt="">
-            </li>
-            <li>
-              <a href="">Accesorios</a>
-            </li>
-          </ul>
-      </div>
-    </div>
-    <div id="informacion" class="row mx-auto">
-      <div class="col-md">
-        <ul>
-          <li>
-            <img class="img-fluid" src="{% static 'img/4-1.png'%}" alt="">
-          </li>
-          <li>
-            <h3 class="text-center">Calidad Premium</h3>
-          </li>
-          <li>
-            <p class="text-center">Nuestro equipo de profesionales consta de ingenieros químicos y especialistas en tratamiento
-              de aguas</p>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md">
-        <ul>
-          <li>
-            <img class="img-fluid" src="{% static 'img/4-2.png'%}" alt="">
-          </li>
-          <li>
-            <h3 class="text-center">Agua Purificada</h3>
-          </li>
-          <li>
-            <p class="text-center">Nuestra agua Purificada es un tipo de Agua Potable donde las impurezas se reducen hasta tal punto que son casi imperceptibles</p>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md">
-        <ul>
-          <li>
-            <img class="img-fluid" src="{% static 'img/4-3.png'%}" alt="">
-          </li>
-          <li>
-            <h3 class="text-center">Agua Alcalina</h3>
-          </li>
-          <li>
-            <p class="text-center">Es un tipo de agua ionizada que actúa como un potente y natural antioxidante</p>
-          </li>
-        </ul>
-      </div>
+{% block content%}
+<link rel="stylesheet" href="{%static 'css/inicio.css'%}">
+<img id="img-1-responsive" class="img-fluid" src="{% static 'img/1-responsive.png'%}" alt="">
+<img id="img-1" class="img-fluid w-100" src="{% static 'img/1.png'%}" alt="">
+<div id="contenedor-promociones" class="container-fluid py-5 d-flex align-items-center justify-content-center">
+  <h2 class="text-center display-4">PROMOCIONES ESPECIALES</h2>
+</div>
+<div id='img-2' class="row mx-auto d-flex justify-content-end">
+  <div class="col">
+    <h3 class="my-3">APROVECHA AHORA Y RECARGA TUS</h3>
+    <h3 class="display-2 my-0">BOTELLONES</h3>
+    <h3 class="my-3">DE 12 Y 20 LTS</h3>
+    <a id="boton-productos" class="border border-white" href="">Ver productos</a>
+  </div>
+</div>
+<div id="servicios" class="row my-5">
+  <div class="col-md">
+    <ul class="p-0">
+      <li>
+        <img class="img-fluid" src="{% static 'img/3-1.png'%}" alt="">
+      </li>
+      <li>
+        <a href="">Agua</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md">
+    <ul>
+      <li>
+        <img class="img-fluid" src="{% static 'img/3-2.png'%}" alt="">
+      </li>
+      <li>
+        <a href="">Kit iniciales</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md">
+    <ul>
+      <li>
+        <img class="img-fluid" src="{% static 'img/3-3.png'%}" alt="">
+      </li>
+      <li>
+        <a href="">Planes</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md">
+    <ul>
+      <li>
+        <img class="img-fluid" src="{% static 'img/3-4.png'%}" alt="">
+      </li>
+      <li>
+        <a href="">Accesorios</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div id="informacion" class="row mx-auto">
+  <div class="col-md">
+    <ul>
+      <li>
+        <img class="img-fluid" src="{% static 'img/4-1.png'%}" alt="">
+      </li>
+      <li>
+        <h3 class="text-center">Calidad Premium</h3>
+      </li>
+      <li>
+        <p class="text-center">Nuestro equipo de profesionales consta de ingenieros químicos y especialistas en
+          tratamiento
+          de aguas</p>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md">
+    <ul>
+      <li>
+        <img class="img-fluid" src="{% static 'img/4-2.png'%}" alt="">
+      </li>
+      <li>
+        <h3 class="text-center">Agua Purificada</h3>
+      </li>
+      <li>
+        <p class="text-center">Nuestra agua Purificada es un tipo de Agua Potable donde las impurezas se reducen hasta
+          tal punto que son casi imperceptibles</p>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md">
+    <ul>
+      <li>
+        <img class="img-fluid" src="{% static 'img/4-3.png'%}" alt="">
+      </li>
+      <li>
+        <h3 class="text-center">Agua Alcalina</h3>
+      </li>
+      <li>
+        <p class="text-center">Es un tipo de agua ionizada que actúa como un potente y natural antioxidante</p>
+      </li>
+    </ul>
+  </div>
 
-    </div>
-    <div id="quienes" class="row py-5 px-0">
-      <div class="col-md px-0">
-        <img class="img-fluid" src="{% static 'img/5.png'%}" alt="">
-      </div>
-      <div id="quienes-somos" class="col-md">
-        <h1 class="display-3 my-5" >
-          Quienes Somos
-        </h1 >
-        <p>
-          Ecopura SpA, es una empresa joven y dedicada a entregar 
-          productos y servicio de calidad garantizada con análisis y certificaciones constantes.
-        </p>
-        <a class="d-flex justify-content-center" href="">Ver más</a>
-      </div>
-    </div>
-    <div id="contenedor-promociones" class="container-fluid d-flex align-items-center justify-content-center">
-      <h2 class="text-center display-4 py-5 " >Productos Destacados</h2>
-    </div>
-    {%include "lista.html"%}
-
-
-  {% include "footer.html"%}
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
-</html>
+</div>
+<div id="quienes" class="row py-5 px-0">
+  <div class="col-md px-0">
+    <img class="img-fluid" src="{% static 'img/5.png'%}" alt="">
+  </div>
+  <div id="quienes-somos" class="col-md">
+    <h1 class="display-3 my-5">
+      Quienes Somos
+    </h1>
+    <p>
+      Ecopura SpA, es una empresa joven y dedicada a entregar
+      productos y servicio de calidad garantizada con análisis y certificaciones constantes.
+    </p>
+    <a class="d-flex justify-content-center" href="">Ver más</a>
+  </div>
+</div>
+<div id="contenedor-promociones" class="container-fluid d-flex align-items-center justify-content-center">
+  <h2 class="text-center display-4 py-5 ">Productos Destacados</h2>
+</div>
+{%include "lista.html"%}
+{%endblock%}

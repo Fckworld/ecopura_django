@@ -11,19 +11,13 @@ p{
     font-weight: lighter;
 }
 
-a{
-    text-decoration: none;
-    color: #204e9d;
-}
+
 .row{
     padding-top: 30px;
     display: flex;
     justify-content: space-around;
 }
-a:visited{
-    text-decoration: none;
-    color: #204e9d;
-}
+
 #links-footer a{
     color: white;
 }
