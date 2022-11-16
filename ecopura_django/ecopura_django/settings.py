@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'crispy_forms',
     'django_google_maps',
-    'ecopuraApp'
+    'ecopuraApp',
+    'usuarios',
 ]
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'ecopura_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': (os.path.join(BASE_DIR,'ecopuraApp/templates'),),
+        'DIRS': (os.path.join(BASE_DIR,'templates'),),
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -148,3 +149,5 @@ EMAIL_HOST_PASSWORD = 'f0393448472c4c'
 EMAIL_PORT = '2525'
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDPetu0R5YbrwlQ8pLw5T8KHbAedLBN4BQ'
+
+AUTH_USER_MODEL = 'usuarios.Usuario'
