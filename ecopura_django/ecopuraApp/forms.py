@@ -5,10 +5,10 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, HTML, Field, Div, Column, Row
 from django.core.validators import RegexValidator
 
-
-def personal_validator(value):
-    if len(value) < 3:
-        raise forms.ValidationError('el valor tiene que ser mayor a 3')
+#VALIDACION PERSONALIZADO
+# def personal_validator(value):
+#     if len(value) < 3:
+#         raise forms.ValidationError('el valor tiene que ser mayor a 3')
 
 
 class CrearContactoForm(forms.ModelForm):
@@ -42,10 +42,12 @@ class CrearContactoForm(forms.ModelForm):
         model = Mensaje
         exclude = ('usuario','rut_ver_empresa',)
 
- 
-    def clean_p_nombre(self, *args, **kwargs):
-        p_nombre = self.cleaned_data.get('p_nombre')
-        if len(p_nombre) > 1:
-            return p_nombre
-        else:
-            raise forms.ValidationError('ASDNJKLADHJKLS')
+    #OTRO INTENTO DE VALIDACION PERSONALZIADO
+    # def clean_p_nombre(self, *args, **kwargs):
+    #     p_nombre = self.cleaned_data.get('p_nombre')
+    #     if len(p_nombre) > 1:
+    #         return p_nombre
+    #     else:
+    #         raise forms.ValidationError('ASDNJKLADHJKLS')
+
+

@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-_$-&*)lw2_ho^o4+5o4$5qcqgt#fpkeca2eqo#+$x&g1o9^p^5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []#'*'
 
 
 # Application definition
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_google_maps',
     'ecopuraApp',
-    'usuarios',
+    'usuarios'
 ]
 CRISPY_TEMPLATE_PACK='bootstrap4'
 
@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
@@ -132,7 +132,7 @@ STATIC_URL = 'static/'
 #ESTO ES PARA PODER SUBIR IMAGENES A LA BASE DE DATOS, Y EN QUE CARPETA SE GUARDARA
 MEDIA_URL = ''
 
-MEDIA_ROOT = BASE_DIR/'ecopuraApp/media'
+MEDIA_ROOT = BASE_DIR/'media'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'ecopuraApp/static'),)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -150,4 +150,5 @@ EMAIL_PORT = '2525'
 
 GOOGLE_MAPS_API_KEY = 'AIzaSyDPetu0R5YbrwlQ8pLw5T8KHbAedLBN4BQ'
 
-AUTH_USER_MODEL = 'usuarios.Usuario'
+
+AUTH_USER_MODEL = "usuarios.Usuario"

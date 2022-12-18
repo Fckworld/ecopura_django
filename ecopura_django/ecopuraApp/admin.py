@@ -1,12 +1,13 @@
 from django.contrib import admin
 from ecopuraApp.models import *
+from usuarios.models import Usuario 
 from django_google_maps import widgets as map_widgets
 from django_google_maps import fields as map_fields
 
 # Register your models here.
 
-class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ('id','correo','numero')
+# class UsuarioAdmin(admin.ModelAdmin):
+#     list_display = ('id','correo','numero')
  
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('id','p_nombre','s_apellido')
@@ -41,7 +42,7 @@ class UbicacionAdmin(admin.ModelAdmin):
         map_fields.AddressField: {'widget': map_widgets.GoogleMapsAddressWidget},
     }
 
-admin.site.register(Usuario,UsuarioAdmin)
+#admin.site.register(Usuario,UsuarioAdmin)
 admin.site.register(Cliente,ClienteAdmin)
 admin.site.register(Direccion,DireccionAdmin)
 admin.site.register(Boleta,BoletaAdmin)
@@ -53,4 +54,5 @@ admin.site.register(Contacto,ContactoAdmin)
 admin.site.register(Tipo,TipoAdmin)
 admin.site.register(Mensaje,MensajeAdmin)
 admin.site.register(Ubicacion,UbicacionAdmin)
+admin.site.register(Usuario)
 

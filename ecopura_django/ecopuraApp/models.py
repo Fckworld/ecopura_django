@@ -1,5 +1,10 @@
 from django.db import models
+from django.db.models.signals import post_save
 from django.core.validators import RegexValidator
+from django.conf import settings
+from django.dispatch import receiver
+from usuarios.models import Usuario
+from django import forms
 
 from django_google_maps import fields as map_fields
 
@@ -13,19 +18,20 @@ class Direccion(models.Model):
     numero = models.IntegerField(null=True)
     otro = models.CharField(max_length=300, null=True, blank= True)
 
+
     def __str__(self):
         return self.comuna
 
-class Usuario(models.Model):
-    correo = models.EmailField(unique=True)
-    creacion = models.DateTimeField(auto_now_add=True)
-    numero = models.CharField(max_length=30,null=True, blank = True)
-    direccion = models.ManyToManyField(Direccion, null = True, blank= True)
+# class Usuario(models.Model):
+#     correo = models.EmailField(unique=True)
+#     creacion = models.DateTimeField(auto_now_add=True)
+#     numero = models.CharField(max_length=30,null=True, blank = True)
+#     direccion = models.ManyToManyField(Direccion, null = True, blank= True)
   
     
     
-    def __str__(self):
-        return self.correo
+#     def __str__(self):
+#         return self.correo
 
 class Ubicacion(models.Model):
     address = map_fields.AddressField(max_length=200)
@@ -40,6 +46,7 @@ class Mensaje(models.Model):
     rut_empresa = models.CharField(max_length=13, null = True, blank = True)
     rut_ver_empresa = models.CharField(max_length=1, null = True, blank = True)
     correo = models.EmailField()
+    
     BASIC = 'BS'
     ELECTRIC = 'EL'
     AMBAS = 'AB'
@@ -50,9 +57,22 @@ class Mensaje(models.Model):
     ]
     detalle_dispensador = models.CharField(max_length=2, choices=CHOICES, default=BASIC,)
     detalle_texto = models.TextField(null = True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = True, blank = True)
+    #usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null = True, blank = True)
+    #CREACION NO SE MUESTRA EN ADMIN POR SER UN AUTO_NOW_ADD
     creacion = models.DateTimeField(auto_now_add=True)
-    
+    # user = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL,
+    #     on_delete=models.CASCADE,
+    #     blank=True,
+    #     null=True,
+    # )
+    user = models.ForeignKey(
+        Usuario,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+
 
 class Cliente(models.Model):
     p_nombre = models.CharField(max_length=100)
@@ -64,8 +84,8 @@ class Cliente(models.Model):
         Usuario,
         on_delete = models.CASCADE,
     )
-    def __str__(self):
-        return self.p_nombre+self.p_apellido
+    # def __str__(self):
+    #     return self.p_nombre+self.p_apellido
 
 class Pago(models.Model):
     medio = models.CharField(max_length=30)
@@ -74,13 +94,11 @@ class Pago(models.Model):
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=30)
-    def __str__(self):
-        return self.nombre
+
 
 class Tipo(models.Model):
     nombre = models.CharField(max_length=30, null= True)
-    def __str__(self):
-        return self.nombre
+
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)
@@ -90,13 +108,11 @@ class Producto(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     tipo = models.ForeignKey(Tipo, on_delete = models.CASCADE, null= True)
     
-    def __str__(self):
-        return self.nombre
 
 class Carrito(models.Model):
     valor_carro = models.IntegerField()
     descuento = models.IntegerField()
-    producto = models.ManyToManyField(Producto,null = True)
+    producto = models.ManyToManyField(Producto)
 
 
 class Boleta(models.Model):
@@ -123,5 +139,16 @@ class Contacto(models.Model):
     asunto = models.CharField(max_length=50)
     mensaje = models.TextField(max_length=500)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=True)
-    def __str__(self):
-        return self.p_nombre+self.p_apellido
+    
+
+@receiver(post_save, sender=Mensaje)
+def dar_relacion_mensaje_usuario(sender,instance,created,**kwargs):
+    print('SIGNAL DE MENSAJE')
+    correo = instance.correo
+    #SI EXISTE UN USUARIO CON EL MISMO CORREO DEL MENSAJE
+    print(instance.user)
+    if Usuario.objects.filter(correo=correo):
+        if created:
+            Mensaje.objects.update(user = Usuario.objects.get(correo=correo))
+   
+

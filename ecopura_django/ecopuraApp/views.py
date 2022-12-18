@@ -1,10 +1,10 @@
-from pipes import Template
 from django.views.generic import ListView, CreateView, DetailView, TemplateView
 from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect, render
+from django.http import HttpResponse
 from django.core.mail import send_mail
-
+from django.conf import settings
+from usuarios.models import Usuario
 from ecopuraApp.models import *
 from ecopuraApp.forms import *
 
@@ -20,13 +20,14 @@ class ProductoDetalle(DetailView):
     model = Producto
     template_name = 'producto_detalle.html'
 
+
 class Agua(ListView):
     template_name='agua.html'
     model = Producto
-    paginate_by = 9
-    ordering= ['nombre']
+    paginate_by = 9 
+    ordering= ['id']
     def get_queryset(self):
-        return Producto.objects.filter(tipo_id = 1)
+        return Producto.objects.filter(tipo_id = 1).order_by('nombre')
 
     context_object_name = 'productos'
     
@@ -40,6 +41,7 @@ class CrearContacto(CreateView):
     #tanto si esta validando como el save.
     def post(self, request, *args, **kwargs):
         form =  self.form_class(request.POST)
+        print(form)
         if form.is_valid():
             nuevo_mensaje = Mensaje(
                 p_nombre = form.cleaned_data.get('p_nombre'),
@@ -54,19 +56,13 @@ class CrearContacto(CreateView):
             )
             cv = str(nuevo_mensaje.rut_empresa).partition('-')[2]
             nuevo_mensaje.rut_ver_empresa = cv
-
-            #SI EXISTE UN USUARIO CON EL CORREO DEL MENSAJE, ENTONCES
-            if Usuario.objects.filter(correo=nuevo_mensaje.correo):
-                #VINCULO EL CORREO DEL MENSAJE CON EL CORREO DEL USUARIO EXISTENTE
-                nuevo_mensaje.usuario = Usuario.objects.filter(correo=nuevo_mensaje.correo).get()
-                nuevo_mensaje.save()
-            #SINO NO EXISTE, CREO EL NUEVO USUARIO USANDO EL CORREO DEL MENSAJE
-            else:
-
-                nuevo_usuario = Usuario(correo=nuevo_mensaje.correo)
-                nuevo_usuario.save()
-                nuevo_mensaje.usuario = nuevo_usuario
-                nuevo_mensaje.save()
+            
+            # #SI EXISTE UN USUARIO CON EL CORREO DEL MENSAJE, ENTONCES
+            # if Usuario.objects.filter(correo=nuevo_mensaje.correo):
+            #     #VINCULO EL CORREO DEL MENSAJE CON EL CORREO DEL USUARIO EXISTENTE
+            #     nuevo_mensaje.user = Usuario.objects.filter(correo=nuevo_mensaje.correo).get()
+            # #SINO NO EXISTE, CREO EL NUEVO USUARIO USANDO EL CORREO DEL MENSAJE
+            nuevo_mensaje.save()
             
             contenido_mensaje ='"'+nuevo_mensaje.p_nombre+' '+nuevo_mensaje.p_apellido+'" esta tratando de contactarnos, nos dice:'+'"'+nuevo_mensaje.detalle_texto+'"'
             
@@ -133,20 +129,10 @@ class Planes(CreateView):
             if Usuario.objects.filter(correo=nuevo_mensaje.correo):
                 #VINCULO EL CORREO DEL MENSAJE CON EL CORREO DEL USUARIO EXISTENTE
                 #EL USUARIO DE ESTE MENSAJE VA A SER EL USUARION QUE YA TIENE ESE CORREO REGISTADO.
-                nuevo_mensaje.usuario = Usuario.objects.filter(correo=nuevo_mensaje.correo).get()
+                nuevo_mensaje.user = Usuario.objects.filter(correo=nuevo_mensaje.correo).get()
                 #GUARDO EL MENSAJE EN BD CON USUARIO VINCULADO
-                nuevo_mensaje.save()
-
-            #SINO NO EXISTE, CREO EL NUEVO USUARIO USANDO EL CORREO DEL MENSAJE
-            else:
-                #CREO USUARIO SOLO CON CORREO
-                nuevo_usuario = Usuario(correo=nuevo_mensaje.correo)
-                #GUARDO NUEVO USUARIO (REPITO, SOLO TIENE EL CORREO(NO ES CLIENTE))
-                nuevo_usuario.save()
-                #AHORA QUE TENGO EL USUARIO NUEVO, LO VINCULO CON EL MENSAJE
-                nuevo_mensaje.usuario = nuevo_usuario
-                #GUARDO EL MENSAJE EN BD CON USUARIO VINCULADO
-                nuevo_mensaje.save()
+            nuevo_mensaje.save()
+ 
             
             
             contenido_mensaje ='NOMBRE:'+nuevo_mensaje.p_nombre+' '+nuevo_mensaje.p_apellido+'. \n MENSAJE:'+nuevo_mensaje.detalle_texto+'.\nNUMERO DE CONTACTO:'+str(nuevo_mensaje.telefono)+'.\n EMPRESA:'+nuevo_mensaje.empresa+'.\n RUT EMPRESA:'+nuevo_mensaje.rut_empresa

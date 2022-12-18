@@ -5,6 +5,7 @@ from django.contrib.auth.views import logout_then_login
 from ecopuraApp.views import *
 from usuarios.views import *
 
+
 app_name= 'ecopuraApp'
 #APP_NAME ME SIRVE PARA PODER UTILIZAR EL REVERSE_LAZY, DICIENDOLE QUE APP VAMOS A USAR Y EL NOMBRE (name='contacto_url')
 #DE LA URL A LA  QUE VAMOS REDIRECCIONAR
@@ -27,6 +28,5 @@ urlpatterns = [
     path('zona-despacho',ZonaDespacho.as_view(),name='zonadespacho_url'),
     path('tratamiendo-de-aguas',TratamientoAguas.as_view(),name = 'tratamientoaguas_url'),
     path('iniciar-sesion', InicioSesion.as_view(),name='iniciosesion_url'),
-    path('users',RegistroSesion.as_view(),name = 'registro_url')
     ]
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+

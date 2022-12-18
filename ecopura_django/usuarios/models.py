@@ -1,51 +1,83 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
-
 # Create your models here.
 
 
-class AdministradorCuentaPersonalizado(BaseUserManager):
-    def create_superuser(self,correo,nombre_usuario, primer_nombre, password, **otras_mierdas):
-        otras_mierdas.setdefault('is_staff',True)
-        otras_mierdas.setdefault('is_superuser',True)
-        otras_mierdas.setdefault('is_activate',True)
-        
-        if otras_mierdas.get('is_staff') is not True:
-            raise ValueError('Super usuario debe ser asignado a is_staff=True.')
+class CustomAccountManager(BaseUserManager):
+    # el nombre de los argumentos que recibe la funcion
+    # create_user tienen que ser los mismos nombre que se usan
+    # al declarar las variables utilizar en el modelo Usuario
+    def create_superuser(self, correo, password, **other_fields):
 
-        if otras_mierdas.get('is_superuser') is not True:
-            raise ValueError('Super usuario debe ser asignado a is_superuser=True.')
+        # ES OBLIGATORIO LOS VALORES IS_STAFF Y IS_SUPERUSER, ES OBVIO YA QUE ES LO QUE ESTAMOS CREANDO
+        other_fields.setdefault('is_staff', True)
+        other_fields.setdefault('is_superuser', True)
 
-        return self.create_user(correo,nombre_usuario,primer_nombre,password,**otras_mierdas)
+        if other_fields.get('is_staff') is not True:
+            raise ValueError(
+                'Superuser must be assigned to is_staff=True.')
+        if other_fields.get('is_superuser') is not True:
+            raise ValueError(
+                'Superuser must be assigned to is_superuser=True.')
 
-    def create_user(self,correo,nombre_usuario, primer_nombre, password, **otras_mierdas):
-        
+        return self.create_user(correo, password, **other_fields)
+
+    def create_user(self, correo, password, **other_fields):
+
         if not correo:
-            raise ValueError(('Debe proporionar un correo electronico'))
-        
-        correo = self.normalize_email(correo)
-        usuario = self.model(
-            correo = correo,
-            nombre_usuario = nombre_usuario,
-            primer_nombre = primer_nombre,
-            **otras_mierdas
-        )
-        usuario.set_password(password)
-        usuario.save()
-        return usuario
+            raise ValueError(_('You must provide an email address'))
+
+        email = self.normalize_email(correo)
+        user = self.model(correo=email, **other_fields)
+        user.set_password(password)
+        user.save()
+        return user
+
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
-    correo = models.EmailField(('email address'), unique=True)
-    nombre_usuario = models.CharField(max_length=30, unique=True)
-    creacion = models.DateTimeField(auto_now_add=True)
-    primer_nombre = models.CharField(max_length=30, blank=True, null=True)
-    is_staff = models.BooleanField(default=False)
-    is_activate = models.BooleanField(default=False)
 
-    object = AdministradorCuentaPersonalizado()
+    # AL LLAMAR PERMISSIONMIXIN ESTE ME PERMITE CREAR LAS TABLAS DE GRUPO Y PERMISOS EN LA BASE DE DATOS AL MIGRAR
+
+    # ADEMAS NO OLVIDAR QUE UN CORREO( PARA EL CAMPO USERNAME_FIELD) Y IS_STAFF SON OBLIGATORIOS EN ABSTRACTBASEUSER
+    correo = models.EmailField(unique=True)
+    is_staff = models.BooleanField(default=False)
+    #PERSONALIZACION
+    rut = models.CharField(max_length=13, null = True, blank = True)
+    cod_ver_rut = models.CharField(max_length=1, null = True, blank = True)
+    rut_empresa = models.CharField(max_length=13, null = True, blank = True)
+    cod_ver_empresa = models.CharField(max_length=1, null = True, blank = True)
+    p_nombre = models.CharField(max_length=25, null = True, blank = True)
+    s_nombre = models.CharField(max_length=25, null = True, blank = True)
+    p_apellido = models.CharField(max_length=25, null = True, blank = True)
+    s_apellido = models.CharField(max_length=25, null = True, blank = True)
+    telefono = models.IntegerField(null=True, blank=True)
+
+    #stime_of_day = models.DateTimeField(null=True)
 
     USERNAME_FIELD = 'correo'
-    REQUIRED_FIELDS = ['nombre_usuario','primer_nombre']
+
+    objects = CustomAccountManager()
 
     def __str__(self):
-        return self.nombre_usuario
+        return self.correo
+
+
+@receiver(post_save, sender=Usuario)   
+def dar_relacion_usuario_mensaje(sender, instance,created, **kwargs):
+
+    from ecopuraApp.models import Mensaje
+    correo = instance.correo
+    # SI EXISTE UN MENSAJE CON EL MISMO CORREO DEL USUARIO:
+    if created:
+        if Mensaje.objects.filter(correo=correo):
+            # OBTENGO EL USUARIO QUE QUIERO VINCULAR CON EL CORREO DEL MENSAJE
+            #usuario_a_vincular = Usuario.objects.get(correo=correo)
+            usuario_a_vincular = Usuario.objects.get(correo=correo)
+            # GUARDO LOS MENSAJES EN UN VARIABLE
+            mensajes = Mensaje.objects.filter(correo=correo)
+            # ACTRUALIZO TODOS LOS MENSAJES QUE GUARDÉ, VINCULADO EL USUARIO A TODOS LOS MENSAJES
+            mensajes.update(user=usuario_a_vincular)
+
+

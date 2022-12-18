@@ -1,0 +1,21 @@
+
+{% extends 'base.html'%}
+{% load crispy_forms_filters%}
+{% load crispy_forms_tags%}
+{% load static%}
+{%block title%}
+    Inicio Sesión
+{%endblock%}
+{% block content%}
+
+    
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <form action="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+            </form>
+        </div>
+    </div>
+
+{%endblock%}

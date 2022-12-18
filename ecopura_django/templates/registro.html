@@ -1,9 +1,16 @@
 {% extends 'base.html'%}
 {% block content%}
-    <form method='post' action="">
-        {% csrf_token %}
-        {{form}}
-        <button type="submit" class="btn btn-success" >Registrar</button>
-    </form>
-    
+<h1>
+    PAGINA DE REGISTRO
+</h1>
+<a href="{% url 'usuarios:registrar_url' %}">LINK</a>
+<div class="row">
+    <div class="col d-flex justify-content-center">
+        <form method="POST">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
 {% endblock%}

@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load crispy_forms_filters%}
+{% load crispy_forms_tags%}
+{% load static%}
+{%block title%}
+Inicio Sesión
+{%endblock%}
+{% block content%}
+<link rel="stylesheet" href="{% static 'css/login.css'%}">
+<div class="row my-5 mx-0">
+    <div class="col-md my-auto text-center">
+            <h1>BIENVENIDO A ECOPURA</h1>
+            <p>
+                Te ayuda a comunicarte y compartir con las personas que forman parte de tu vida.
+            </p>
+    </div>
+    <div class="col-md d-flex justify-content-start">
+        <div class="card py-5 px-4">
+            <form method="POST">
+                {%csrf_token%}
+                {{form.as_p}}
+                <div class="col d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
+                </div>
+                <div class="card-body">¿No tienes cuenta? <a href="{% url 'usuarios:registrar_url'%}">Crear Cuenta</a></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
